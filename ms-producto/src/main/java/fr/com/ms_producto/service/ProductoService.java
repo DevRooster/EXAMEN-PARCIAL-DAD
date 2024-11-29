@@ -1,7 +1,7 @@
 package fr.com.ms_producto.service;
 
 
-import com.example.msgestion_destino.entity.Destino;
+import fr.com.ms_producto.entity.Producto;
 
 import org.springframework.stereotype.Service;
 

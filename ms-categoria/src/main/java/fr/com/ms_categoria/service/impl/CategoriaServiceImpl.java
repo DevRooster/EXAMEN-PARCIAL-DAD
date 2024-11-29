@@ -1,8 +1,8 @@
 package fr.com.ms_categoria.service.impl;
 
-import com.example.msgestion_empresa.entity.Empresa;
-import com.example.msgestion_empresa.repository.categoriaRepository;
-import com.example.msgestion_empresa.service.EmpresaService;
+import fr.com.ms_categoria.entity.Categoria;
+import fr.com.ms_categoria.repository.CategoriaRepository;
+import fr.com.ms_categoria.service.CategoriaService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,8 +20,8 @@ public class CategoriaServiceImpl implements CategoriaService {
     }
 
     @Override
-    public Categoria guardar(Categoria empresa) {
-        return categoriaRepository.save(empresa);
+    public Categoria guardar(Categoria categoria) {
+        return categoriaRepository.save(categoria);
     }
 
     @Override
@@ -30,8 +30,8 @@ public class CategoriaServiceImpl implements CategoriaService {
     }
 
     @Override
-    public Categoria actualizar(Categoria empresa) {
-        return categoriaRepository.save(empresa);
+    public Categoria actualizar(Categoria categoria) {
+        return categoriaRepository.save(categoria);
     }
 
     @Override

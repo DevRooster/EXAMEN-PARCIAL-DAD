@@ -1,11 +1,13 @@
 package fr.com.ms_producto.controller;
 
-import fr.com.ms_producto.entity.Destino;
+
 import fr.com.ms_producto.service.ProductoService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import fr.com.ms_producto.entity.Producto;
 
 import java.util.List;
 @RestController

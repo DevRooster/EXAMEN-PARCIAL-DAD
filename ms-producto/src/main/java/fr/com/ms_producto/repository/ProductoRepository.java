@@ -1,7 +1,7 @@
 package fr.com.ms_producto.repository;
 
 
-import fr.com.ms_producto.entity.Destino;
+import fr.com.ms_producto.entity.Producto;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

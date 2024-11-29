@@ -4,8 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import com.example.msgestion_empresa.entity.Empresa;
-import com.example.msgestion_empresa.service.categoriaService;
+import fr.com.ms_categoria.entity.Categoria;
+import fr.com.ms_categoria.service.CategoriaService;
 
 import java.util.List;
 @RestController
@@ -19,8 +19,8 @@ public class CategoriaController {
         return ResponseEntity.ok(categoriaService.lista());
     }
     @PostMapping
-    ResponseEntity<Categoria> guardar(@RequestBody Categoria empresa) {
-        return ResponseEntity.ok(categoriaService.guardar((empresa)));
+    ResponseEntity<Categoria> guardar(@RequestBody Categoria categoria) {
+        return ResponseEntity.ok(categoriaService.guardar((categoria)));
     }
 
     @GetMapping("/{id}")
@@ -30,8 +30,8 @@ public class CategoriaController {
     }
 
     @PutMapping
-    ResponseEntity<Categoria> actualizar(@RequestBody Categoria empresa){
-        return ResponseEntity.ok(categoriaService.actualizar((empresa)));
+    ResponseEntity<Categoria> actualizar(@RequestBody Categoria categoria){
+        return ResponseEntity.ok(categoriaService.actualizar((categoria)));
     }
     @DeleteMapping("/{id}")
     public ResponseEntity<List<Categoria>> eleminar(@PathVariable(required = true) Integer id){

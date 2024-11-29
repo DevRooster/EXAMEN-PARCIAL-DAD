@@ -1,17 +1,15 @@
 package fr.com.ms_categoria.service;
 
 
-import com.example.msgestion_empresa.entity.Empresa;
-
+import fr.com.ms_categoria.entity.Categoria;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.Optional;
 @Service
 public interface CategoriaService {
     List<Categoria> lista();
-    Categoria guardar(Categoria empresa);
+    Categoria guardar(Categoria categoria);
     Optional<Categoria> buscarPorId(Integer id);
-    Categoria actualizar(Categoria empresa);
+    Categoria actualizar(Categoria categoria);
     void eleminar(Integer id);
 }

@@ -1,9 +1,7 @@
-package cfr.com.ms_producto.entity;
+package fr.com.ms_producto.entity;
 
-import java.util.Date;
 
-import com.example.ms_producto.dto.CategoriaDto;
-
+import fr.com.ms_producto.dto.CategoriaDto;
 import jakarta.persistence.*;
 import lombok.Data;
 

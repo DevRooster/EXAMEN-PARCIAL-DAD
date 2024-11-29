@@ -1,12 +1,12 @@
 package fr.com.ms_producto.service.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import fr.com.ms_producto.entity.Producto;
 import fr.com.ms_producto.dto.CategoriaDto;
-import fr.com.ms_producto.entity.Destino;
 import fr.com.ms_producto.feign.CategoriaFeign;
 import fr.com.ms_producto.repository.ProductoRepository;
 import fr.com.ms_producto.service.ProductoService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
@@ -20,45 +20,44 @@ public class ProductoServiceImpl implements ProductoService {
 
     @Override
     public List<Producto> lista() {
-        List<Producto> ofertas = productoRepository.findAll();
-        // Cargar datos de categoriaDto para cada oferta
-        for (Producto oferta : ofertas) {
-            if (oferta.getCategoriaId() != null) {
-                CategoriaDto categoriaDto = categoriaFeign.buscarPorId(oferta.getCategoriaId());
-                oferta.setcategoriaDto(categoriaDto);
+        List<Producto> productos = productoRepository.findAll();
+        // Cargar datos de categoriaDto para cada producto
+        for (Producto producto : productos) {
+            if (producto.getCategoriaId() != null) {
+                CategoriaDto categoriaDto = categoriaFeign.buscarPorId(producto.getCategoriaId());
+                producto.setCategoriaDto(categoriaDto); // Ensure correct method name here
             }
         }
-        return ofertas;
+        return productos;
     }
 
     @Override
-    public Producto guardar(Producto oferta) {
-        return productoRepository.save(oferta);
+    public Producto guardar(Producto producto) {
+        return productoRepository.save(producto);
     }
 
     @Override
     public Optional<Producto> buscarPorId(Integer id) {
-        Optional<Producto> ofertaOptional = productoRepository.findById(id);
-        if (ofertaOptional.isPresent()) {
-            Producto oferta = ofertaOptional.get();
-            if (oferta.getCategoriaId() != null) {
-                CategoriaDto categoriaDto = categoriaFeign.buscarPorId(oferta.getCategoriaId());
-                oferta.setcategoriaDto(categoriaDto);
+        Optional<Producto> productoOptional = productoRepository.findById(id);
+        if (productoOptional.isPresent()) {
+            Producto producto = productoOptional.get();
+            if (producto.getCategoriaId() != null) {
+                CategoriaDto categoriaDto = categoriaFeign.buscarPorId(producto.getCategoriaId());
+                producto.setCategoriaDto(categoriaDto); // Correct method name here
             }
-            return Optional.of(oferta);
+            return Optional.of(producto);
         }
         return Optional.empty();
     }
 
     @Override
-    public Producto actualizar(Producto oferta) {
-        return productoRepository.save(oferta);
+    public Producto actualizar(Producto producto) {
+        return productoRepository.save(producto);
     }
 
     @Override
     public void eleminar(Integer id) {
         productoRepository.deleteById(id);
-
     }
 
     // Método para obtener información de la Categoria desde ms-gestion_Categoria
