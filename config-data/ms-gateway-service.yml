@@ -1,0 +1,18 @@
+server:
+  port: 3108
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:1031/eureka}
+  instance:
+    instance-id: ${spring.application.name}:${spring.appplication.instance_id:${random.value}}
+
+spring:
+  cloud:
+    gateway:
+    routes:
+      - id: ms-auth-service
+        uri: lb://ms-auth-service
+        predicates:
+          - Path=/auth/**
